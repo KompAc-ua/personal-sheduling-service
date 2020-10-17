@@ -48,10 +48,17 @@ function todoMain() {
         saveButton = document.querySelector('#popUpSave')
         addButton = document.querySelector('#popUpAdd')
     }
+   
     function addListeners() {
         saveButton.addEventListener('click', editEvent);
         deleteButton.addEventListener('click', deleteEvent)
         addButton.addEventListener('click',addEvent)
+    }
+    console.log(eventList)
+         window.onclick = function (e) {
+        if(e.target == zatemnenie){pop.style.display = "none";
+       } console.log(e.target)
+        
     }
 
     function addEvent() {
@@ -106,7 +113,7 @@ function todoMain() {
         //Update filter options
         // updateFilterOptions()
 pop.style.display = "none"; var close = document.getElementById("closePopup");
-        console.log(eventList)
+        
     }
 
 
@@ -303,12 +310,11 @@ function renderEvent({
         calendar = new FullCalendar.Calendar(calendarEl, {
             headerToolbar: false,
             dayHeaderFormat :{ weekday: 'long'},
-
             locale: 'uk',
             contentHeight: 'auto',
             buttonIcons: false, // show the prev/next text
             weekNumbers: false,
-            navLinks: true, // can click day/week names to navigate views
+            navLinks: false, // can click day/week names to navigate views
             editable: true,
             dayMaxEvents: true, // allow "more" link when too many events
             events: [],
